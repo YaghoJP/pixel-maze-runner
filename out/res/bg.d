@@ -1,0 +1,1 @@
+out/res/bg.o: res/bg.res

@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "~/dev/jogos/jogos-legados/sgdk200/inc",
+                "~/dev/jogos/jogos-legados/sgdk200/res"
+            ]
+        }
+    ],
+    "version": 4
+}

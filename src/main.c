@@ -1,6 +1,7 @@
 //Includes necessários
 #include <genesis.h>
-#include <sprite_eng.h>
+#include "sprite_eng.h"
+#include "resources.h"
 
 void game_init()
 {
@@ -24,8 +25,6 @@ int main(bool resetType)
   }
   
   game_init();
-
-  VDP_drawText("OLA", 10, 10);
 
   while(true)
   {

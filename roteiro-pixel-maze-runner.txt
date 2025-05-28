@@ -1,0 +1,21 @@
+=============Ideia de Jogo==============
+
+Jogo TOP down, sendo que o jogador estará em um labirinto e deverá pegar chaves ou itens necessários para abrir determinadas portas, contudo terão inimigos de patrulha nesse labirinto que o impossibilitará de passar sem uma luta.
+
+O que vou precisar pro jogo:
+
+- Mapa:
+    - Labirinto
+- Personagem principal em TOP down:
+    - Pode usar armas e espadas, pelo menos 1 arma e uma espada.
+- 3 Tipo de inimigo:
+    - 1 estático que atira de longe.
+    - 1 estático que quando o player chegar perto explode.
+    - 1 de patrulha pelo mapa.
+- Itens:
+    - coração: recupera vida
+    - chave: necessário para abrir baus e portas.
+        - Portas=Passar de nível
+    - 2 tipo de poções:
+        - 1: invisibilidade.
+        - 1:imune.

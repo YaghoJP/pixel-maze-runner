@@ -1,0 +1,1 @@
+SPRITE player_SPR "player/player_4.png" 4 4 FAST 0
