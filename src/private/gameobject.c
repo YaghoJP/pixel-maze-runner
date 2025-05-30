@@ -1,7 +1,7 @@
 #include <genesis.h>
 #include "sprite_eng.h"
-#include "src/public/gameobject.h"
-#include "src/public/globals.h"
+#include "public/gameobject.h"
+#include "public/globals.h"
 
 u16 GAMEOBJECT_init(GameObject* const obj, const SpriteDefinition* const sprite, s16 x, s16 y, u8 pal , u16 ind){
 
@@ -12,7 +12,7 @@ u16 GAMEOBJECT_init(GameObject* const obj, const SpriteDefinition* const sprite,
     obj->speed_x = 0;
     obj->speed_y = 0;
     PAL_setPalette(pal, sprite->palette->data, DMA);
-    obj->sprite = SPR_addSprite(sprite, x, y, PAL_PLAYER);
+    obj->sprite = SPR_addSprite(sprite, x, y, pal);
     obj->width = obj->sprite->definition->w;
     obj->height = obj->sprite->definition->h;
 

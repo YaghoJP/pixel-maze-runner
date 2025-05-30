@@ -2,18 +2,25 @@
 #include <genesis.h>
 #include "sprite_eng.h"
 #include "resources.h"
+#include "public/background.h"
+#include "public/player.h"
+
+
+u16 ind = TILE_USER_INDEX;
 
 void game_init()
 {
-
-  SYS_disableInts();
-  VDP_setScreenHeight224();
   VDP_setScreenWidth320();
-
   SPR_init();
 
-  
-  SYS_enableInts();
+  ind = BACKGROUND_init(ind);
+
+  ind = PLAYER_init(ind);
+}
+
+void game_update()
+{
+  PLAYER_update();
 }
 
 int main(bool resetType)
@@ -23,12 +30,15 @@ int main(bool resetType)
   {
     SYS_hardReset();
   }
-  
-  game_init();
+
+  SYS_showFrameLoad(true);
+	game_init();
+
+	SYS_doVBlankProcess();
 
   while(true)
   {
-
+    game_update();
     //atualiza o hardware da tabela de sprites
     SPR_update();
 

@@ -1,4 +1,5 @@
-out/src/main.o: src/main.c \
+out/src/private/background.o: src/private/background.c \
+ src/public/background.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/genesis.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/types.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/config.h \
@@ -52,6 +53,4 @@ out/src/main.o: src/main.c \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/string.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/maths.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/dma.h \
- /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/sprite_eng.h \
- res/resources.h src/public/background.h src/public/globals.h \
- src/public/player.h src/public/gameobject.h
+ src/public/globals.h res/resources.h

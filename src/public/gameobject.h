@@ -2,6 +2,8 @@
 #define _GAMEOBJECT_H_
 
 #include <genesis.h>
+#include "resources.h"
+#include "globals.h"
 #include "sprite_eng.h"
 
 //Estrutura principal de qualquer "Objeto" no projeto.
