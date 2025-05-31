@@ -38,13 +38,16 @@ int main(bool resetType)
 
   while(true)
   {
+    update_input();
     game_update();
+
+
     //atualiza o hardware da tabela de sprites
     SPR_update();
 
     //espera o VBLANK
     SYS_doVBlankProcess();
-
+    //VDP_waitVSync();
   }
 
   return(0);

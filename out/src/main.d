@@ -54,4 +54,4 @@ out/src/main.o: src/main.c \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/dma.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/sprite_eng.h \
  res/resources.h src/public/background.h src/public/globals.h \
- src/public/player.h src/public/gameobject.h
+ src/public/player.h src/public/gameobject.h src/public/utils.h

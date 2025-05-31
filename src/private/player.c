@@ -3,6 +3,10 @@
 GameObject player;
 
 static inline void PLAYER_get_input_dir4();
+static inline void PLAYER_get_input_gun();
+static inline void PLAYER_get_input_dir8();
+
+int timer = 0;
 
 u16 PLAYER_init(u16 ind){
 	ind += GAMEOBJECT_init(&player, &player_SPR, SCREEN_W/2-12, SCREEN_H/2-12, PAL_PLAYER, ind);
@@ -11,52 +15,121 @@ u16 PLAYER_init(u16 ind){
 }
 
 void PLAYER_update(){
-    
-	PLAYER_get_input_dir4();
 
-    player.next_pos_x = player.pos_x + player.speed_x;
-	player.next_pos_y = player.pos_y + player.speed_y;
+	//PLAYER_get_input_dir8();
+	//PLAYER_get_input_gun();
+   // player.next_pos_x = player.pos_x + player.speed_x;
+	//player.next_pos_y = player.pos_y + player.speed_y;
 
-	// check and resolve walls
-	//LEVEL_move_and_slide(&player);
-	
-	// update current position
-	player.pos_x = player.next_pos_x;
-	player.pos_y = player.next_pos_y;
+	if(key_down(JOY_1, BUTTON_RIGHT))
+	{
+		//player.next_pos_x = player.pos_x + FIX16(1);
+		player.pos_x +=  fix16Mul(FIX16(0.4), FIX16(0.05)); //player.next_pos_x;
+	}
 
 	SPR_setPosition(player.sprite, player.pos_x, player.pos_y);
-	SPR_setAnim(player.sprite, player.anim_sprite);
+	//SPR_setAnim(player.sprite, player.anim_sprite);
 }
 
 static inline void PLAYER_get_input_dir4() {
+	player.speed_x = 0;
+	player.speed_y = 0;
 
-	u16 button = JOY_readJoypad(JOY_1);
-
-	if (button & BUTTON_RIGHT) {
-		kprintf("Direita");
-
+	if (key_down(JOY_1, BUTTON_RIGHT)) {
 		player.speed_x = PLAYER_SPEED;
 		player.speed_y = 0;
 		player.anim_sprite = ANIM_RIGTH;
 	}
 	else 
-	if (button & BUTTON_LEFT) {
-		kprintf("Esquerda");
-
+	if (key_down(JOY_1, BUTTON_LEFT)) {
 		player.speed_x = -PLAYER_SPEED;
 		player.speed_y = 0;
 		player.anim_sprite = ANIM_LEFT;
 	}
 	else
-	if (button & BUTTON_UP) {
+	if (key_down(JOY_1, BUTTON_UP)) {
 		player.speed_x = 0;
 		player.speed_y = -PLAYER_SPEED;
 		player.anim_sprite = ANIM_UP;
 	}
 	else
-	if (button & BUTTON_DOWN) {
+	if (key_down(JOY_1, BUTTON_DOWN)) {
 		player.speed_x = 0;
 		player.speed_y = PLAYER_SPEED;
 		player.anim_sprite = ANIM_DOWN;
+	} 
+}
+
+static inline void PLAYER_get_input_gun() {
+
+	u16 button = JOY_readJoypad(JOY_1);
+
+	if (button & BUTTON_B) {
+
+		player.speed_x = PLAYER_SPEED;
+		player.speed_y = 0;
+		player.anim_sprite = ANIM_RIGTH;
+	}
+
+}
+
+static inline void PLAYER_get_input_dir8() {
+	player.speed_x = 0;
+	player.speed_y = 0;
+
+	/* ANIM DIRECTIONS
+		      2
+		   3     1
+		4           0
+		   5     7
+		      6
+	*/
+
+	if (key_down(JOY_1, BUTTON_RIGHT)) {
+		player.speed_x = PLAYER_SPEED;
+		player.anim_sprite = 0;
+
+		if (key_down(JOY_1, BUTTON_UP)) {
+			player.speed_x =  PLAYER_SPEED45;
+			player.speed_y = -PLAYER_SPEED45;
+			player.anim_sprite = 0;
+			return;
+		} 
+		else
+		if (key_down(JOY_1, BUTTON_DOWN)) {
+			player.speed_x =  PLAYER_SPEED45;
+			player.speed_y =  PLAYER_SPEED45;
+			player.anim_sprite = 0;
+			return;
+		}
+	} 
+	else 
+	if (key_down(JOY_1, BUTTON_LEFT)) {
+		player.speed_x = -PLAYER_SPEED;
+		player.anim_sprite = 0;
+
+		if (key_down(JOY_1, BUTTON_UP)) {
+			player.speed_x = -PLAYER_SPEED45;
+			player.speed_y = -PLAYER_SPEED45;
+			player.anim_sprite = 0;
+			return;
+		}
+		else
+		if (key_down(JOY_1, BUTTON_DOWN)) {
+			player.speed_x = -PLAYER_SPEED45;
+			player.speed_y =  PLAYER_SPEED45;
+			player.anim_sprite = 0;
+			return;
+		}
+	}
+
+	if (key_down(JOY_1, BUTTON_UP)) {
+		player.speed_y = -PLAYER_SPEED;
+		player.anim_sprite = 0;
+	}
+	else
+	if (key_down(JOY_1, BUTTON_DOWN)) {
+		player.speed_y = PLAYER_SPEED;
+		player.anim_sprite = 0;
 	} 
 }

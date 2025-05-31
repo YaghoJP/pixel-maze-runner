@@ -53,4 +53,5 @@ out/src/private/gameobject.o: src/private/gameobject.c \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/maths.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/dma.h \
  /home/yaghojp/dev/jogos/jogos-legados/sgdk200/inc/sprite_eng.h \
- src/public/gameobject.h src/public/globals.h
+ src/public/gameobject.h res/resources.h src/public/globals.h \
+ src/public/globals.h

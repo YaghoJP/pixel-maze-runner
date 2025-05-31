@@ -11,7 +11,7 @@ typedef struct
 {
 
     Sprite *sprite;
-    f16 pos_x;
+    fix16 pos_x;
     f16 pos_y;
     f16 next_pos_x;
     f16 next_pos_y;
